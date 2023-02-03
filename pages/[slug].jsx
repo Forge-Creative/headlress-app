@@ -27,7 +27,7 @@ const Post = () => {
         <main>
             <a href="#" onClick={() => router.back()}>Back</a>
             <div className='post-content'>
-            <Image src={post. featuredImage?.node.sourceUrl} alt='feature image' width={400} height={200}/>
+            
             <h1>{post.title}</h1>
             <h3 dangerouslySetInnerHTML={{ __html: post.content }} />
             </div>
