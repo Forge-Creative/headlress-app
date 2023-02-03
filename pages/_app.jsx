@@ -1,4 +1,5 @@
 
+import { Footer } from '@/component/Footer';
 import { Header } from '@/component/Header';
 import '@/styles/globals.css'
 
@@ -29,6 +30,7 @@ export default function App({ Component, pageProps }) {
     <ApolloProvider client={apolloClient}>
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </ApolloProvider>
   
   )
