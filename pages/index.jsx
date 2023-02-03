@@ -17,26 +17,29 @@ export default function Home() {
   }
   `)
 
-const posts= data?.posts?.nodes; 
-console.log(posts);
-  return ( 
+  const posts = data?.posts?.nodes;
+
+  if (!posts) {
+    return <main><div>loading...</div></main>
+  }
+
+  return (
     <>
       <Head>
         <title>Headless</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        {posts? (posts.map(post => (
-          <div key={post.id}>
-            <h2>{post.title}</h2>
-            <p>{post.slug}</p>
-            <h3 dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-            <a href={`/${post.slug}`}>Read more</a>
-          </div>
-        ))):(
-          <p>Loading...</p>
-        )}
-      </div>
+      <main>
+        <div className="cards-wrapper">
+          {(posts.map(post => (
+            <div key={post.id} className="post-card">
+              <h2>{post.title}</h2>
+              <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+              <a href={`/${post.slug}`}>Read more</a>
+            </div>
+          )))}
+        </div>
+      </main>
     </>
   )
 }
