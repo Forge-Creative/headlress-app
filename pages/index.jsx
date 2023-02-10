@@ -5,12 +5,18 @@ import { gql, useQuery } from '@apollo/client';
 export default function Home() {
 
   const { data } = useQuery(gql`
-  query NewQuery {
-    posts {
+  query ServiceCategoryPostsQuery {
+    posts(where: {categoryName: "Service"}) {
       nodes {
-        id
-        slug
+        id 
         excerpt
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+        content
+        slug
         title
       }
     }
@@ -31,13 +37,15 @@ export default function Home() {
       </Head>
       <main>
         <div className="cards-wrapper">
-          {(posts.map(post => (
-            <div key={post.id} className="post-card">
-              <h2>{post.title}</h2>
-              <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-              <a href={`/${post.slug}`}>Read more</a>
+          {(posts.map(post => {
+            const {id, title, excerpt, slug} = post
+            return (
+            <div key={id} className="post-card">
+              <h2>{title}</h2>
+              <p dangerouslySetInnerHTML={{ __html: excerpt }} />
+              <a href={`/${slug}`}>Read more</a>
             </div>
-          )))}
+          )}))}
         </div>
       </main>
     </>
