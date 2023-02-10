@@ -1,14 +1,14 @@
 # Headless project
+
 ## Tech stack
-**Back end**
-- [WordPress](https://en-nz.wordpress.org/)
--- [WPGraphQL](https://wordpress.org/plugins/wp-graphql/)
+**Back end** - [WordPress](https://en-nz.wordpress.org/)
 
-**Front end**
-- [Next.js](https://nextjs.org/)
--- [Apollo client](https://www.apollographql.com/docs/react/)
+- [WPGraphQL](https://wordpress.org/plugins/wp-graphql/)
 
-## Features
+**Front end** - [Next.js](https://nextjs.org/)
+
+- [Apollo client](https://www.apollographql.com/docs/react/)
+
 
 ## Installation
 
