@@ -20,6 +20,8 @@ const Post = () => {
         `);
 
     const post = data?.post
+    const imageUrl = data?.post.featuredImage.node.sourceUrl
+
     if (!post) {
         return <main><div>loading...</div></main>
     }
@@ -29,6 +31,7 @@ const Post = () => {
             <div className='post-content'>
             
             <h1>{post.title}</h1>
+            <Image src={imageUrl} alt='feature image' width={400} height={300}/>
             <h3 dangerouslySetInnerHTML={{ __html: post.content }} />
             </div>
         </main>
