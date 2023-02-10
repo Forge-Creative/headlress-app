@@ -2,11 +2,11 @@ import Head from 'next/head'
 import { gql, useQuery } from '@apollo/client';
 
 
-export default function Home() {
+export default function News() {
 
   const { data } = useQuery(gql`
-  query ServiceCategoryPostsQuery {
-    posts(where: {categoryName: "Service"}) {
+  query NewsCategoryPostsQuery {
+    posts(where: {categoryName: "News"}) {
       nodes {
         id 
         excerpt
@@ -25,6 +25,7 @@ export default function Home() {
 
   const posts = data?.posts?.nodes;
 
+
   if (!posts) {
     return <main><div>loading...</div></main>
   }
@@ -32,11 +33,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Headless</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>News</title>
       </Head>
       <main>
-        <div className="cards-wrapper">
+      <div className="cards-wrapper">
           {(posts.map(post => {
             const {id, title, excerpt, slug} = post
             return (
