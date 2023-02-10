@@ -1,6 +1,8 @@
 import Link from "next/link"
+import { menuItem } from "@/utils/mainMenu"
 
 export const Header = () => {
+
     return (
         <header className="header">
             <h1>
@@ -8,9 +10,9 @@ export const Header = () => {
             </h1>
             <nav>
                 <ul className="main-menu">
-                    <li> <Link href="/">Home</Link></li>
-                    <li>About</li>
-                    <li>Contact</li>
+                    {menuItem.map(menu => (
+                        <li key={menu.link}><Link href={menu.link}>{menu.title}</Link></li>
+                    ))}
                 </ul>
             </nav>
         </header>
