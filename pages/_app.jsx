@@ -13,7 +13,7 @@ function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === "undefined",
     link: new HttpLink({
-      uri: 'https://devkapp.fc9.sandbox.net.nz/graphql',
+      uri: 'https://headless.fc9.sandbox.net.nz/graphql',
       //uri: process.env.WORDPRESS_END_POINT,
     }),
     cache: new InMemoryCache(),
