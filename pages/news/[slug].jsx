@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { gql, useQuery } from '@apollo/client';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -15,17 +16,26 @@ const Post = () => {
                 sourceUrl
               }
             }
+            seo {
+              title
+            }
           }
         }
         `);
 
   const post = data?.post
   const imageUrl = data?.post.featuredImage?.node.sourceUrl
+  const seoTitle = post?.seo?.title
 
   if (!post) {
     return <main><div>loading...</div></main>
   }
   return (
+    <>
+          <Head>
+        <title>{seoTitle}</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
     <main>
       <a href="#" onClick={() => router.back()}>Back</a>
       <div className='post-content'>
@@ -38,6 +48,7 @@ const Post = () => {
         <div class='post-main' dangerouslySetInnerHTML={{ __html: post.content }} />
       </div>
     </main>
+    </>
   )
 }
 
