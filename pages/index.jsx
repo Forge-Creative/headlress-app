@@ -43,7 +43,7 @@ export default function Home() {
             <div key={id} className="post-card">
               <h2>{title}</h2>
               <p dangerouslySetInnerHTML={{ __html: excerpt }} />
-              <a href={`/${slug}`}>Read more</a>
+              <a href={`service/${slug}`}>Read more</a>
             </div>
           )}))}
         </div>
