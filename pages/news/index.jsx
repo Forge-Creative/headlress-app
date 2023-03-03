@@ -35,6 +35,9 @@ export default function News() {
       <Head>
         <title>News</title>
       </Head>
+      <div style={{ backgroundImage: 'url(https://headless.fc9.sandbox.net.nz/wp-content/uploads/2023/03/TEAM-PHOTO-placeholder.png)', backgroundSize: 'cover', height: 'calc(50vh - 80px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <h1 style={{ color: '#fff', paddingLeft: '100px', fontSize: '64px' }}>News</h1>
+      </div>
       <main>
       <div className="cards-wrapper">
           {(posts.map(post => {
